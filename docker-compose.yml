@@ -1,0 +1,42 @@
+version: '2'
+volumes:
+    db_data: null
+services:
+    web:
+        container_name: web
+        extends:
+            file: base.yml
+            service: base
+        depends_on:
+            - db
+        links:
+            - 'db:db'
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        volumes:
+            - '.:/usr/src/app'
+            - /usr/src/app/node_modules
+        restart: always
+        environment:
+            PORT: '3000'
+            NODE_ENV: development
+        command: npm start
+        ports:
+            - '3000:3000'
+    db:
+        image: postgres
+        extends:
+            file: base.yml
+            service: base
+        restart: always
+        volumes:
+            - './1.schema.sql:/docker-entrypoint-initdb.d/1-schema.sql'
+            - './2.data.sql:/docker-entrypoint-initdb.d/2-data.sql'
+        ports:
+            - '5432:5432'
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - '8080:8080'

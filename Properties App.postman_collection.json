@@ -1,0 +1,45 @@
+{
+    "variables": [],
+    "info": {
+        "name": "Properties App",
+        "_postman_id": "389cb5db-dd7a-be58-24e5-2953e6171979",
+        "description": "",
+        "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "POST  /api/properties",
+            "request": {
+                "url": "http://localhost:3000/api/properties",
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "description": ""
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"owner\": \"test\",\n    \"incomeGenerated\": \"2000.34\",\n    \"address\": {\n        \"line1\": \"Flat 5\",\n        \"line2\": null,\n        \"line3\": null,\n        \"line4\": \"7 Westbourne Terrace\",\n        \"city\": \"\",\n        \"postcode\": \"W2 3UL\",\n        \"country\": \"U.K.\"\n    }\n}"
+                },
+                "description": "Creates new property."
+            },
+            "response": []
+        },
+        {
+            "name": "GET /api/properties",
+            "request": {
+                "url": "http://localhost:3000/api/properties",
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"owner\": \"test\",\n    \"incomeGenerated\": \"2000.34\",\n    \"address\": {\n        \"line1\": \"Flat 5\",\n        \"line2\": null,\n        \"line3\": null,\n        \"line4\": \"7 Westbourne Terrace\",\n        \"city\": \"\",\n        \"postcode\": \"W2 3UL\",\n        \"country\": \"U.K.\"\n    }\n}"
+                },
+                "description": "Gets list of properties."
+            },
+            "response": []
+        }
+    ]
+}

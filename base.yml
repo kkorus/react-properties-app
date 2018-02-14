@@ -1,0 +1,8 @@
+version: '2'
+services:
+    base:
+        environment:
+            POSTGRES_PASSWORD: properties-app
+            POSTGRES_USER: properties-app
+            POSTGRES_DB: properties-app
+            POSTGRES_ADDRESS: db
